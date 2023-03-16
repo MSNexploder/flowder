@@ -4,7 +4,8 @@ import 'package:file_downloader/di/injection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 
-final internetConnectionProvider = StateNotifierProvider.autoDispose<InternetConnectionNotifier, InternetConnectionState>(
+final internetConnectionProvider = StateNotifierProvider.autoDispose<
+    InternetConnectionNotifier, InternetConnectionState>(
   (ref) => locator<InternetConnectionNotifier>(),
 );
 

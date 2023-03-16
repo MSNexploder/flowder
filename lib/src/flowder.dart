@@ -15,6 +15,7 @@ export 'utils/utils.dart';
 /// and another `int` with the total of bytes of the file.
 typedef ProgressCallback = void Function(int count, int total);
 typedef VoidCallback = void Function();
+
 /// Class used as a Static Handler
 /// you can call the folowwing functions.
 /// - Flowder.download: Returns an instance of [DownloaderCore]
@@ -38,7 +39,8 @@ class Flowder {
   static Future<StreamSubscription> initDownload(
       String url, DownloaderUtils options) async {
     var lastProgress = await options.progress.getProgress(url);
-    final client = options.client ?? Dio(BaseOptions(sendTimeout: 60));
+    final client =
+        options.client ?? Dio(BaseOptions(sendTimeout: Duration(seconds: 60)));
     // ignore: cancel_subscriptions
     StreamSubscription? subscription;
     try {
